@@ -1,0 +1,103 @@
+.newDogContainer {
+    align-items: center;
+    background: #D8AA96;
+    color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    height: 100vh;
+    grid-template-areas: "left right";
+    max-width: 900px;
+    margin: auto;
+}
+
+.leftContainer {
+    background: yellow;
+    overflow: hidden;
+    padding: 40px 0 0 0;
+    position: relative;
+    text-align: center;
+    width: 300px;
+    height: 70vh;
+}
+.titleForm {
+    color: #F7B1AB;
+    display: inline-block;
+    font-size: 24px;
+}
+.pawForm {
+    background: #F7B1AB;
+    border-radius: 50%;
+    color: #807182;
+    font-size: 50px;
+    margin-top: 5px;
+    padding: 10px;
+    transform: rotate(-45deg);
+}
+.leftContainerImg {
+    bottom: 0px;
+    text-align: center;
+}
+.leftContainerImg:before {
+    background: #807182;
+    content: "";
+    height: 100%;
+    left: 0;
+    opacity: 0.4;
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+}
+.leftContainer img {
+    filter: sepia(100%);
+    width: 70%;
+}
+
+.rightContainer {
+    background-color: yellow;
+    width: 300px;
+    height: auto;
+}
+
+.inputLabel {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-content: space-around;
+    background-color: red;
+}
+
+.inputLabelGroup {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    background-color: blue;
+}
+
+.inputLabelShort {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    background-color: pink;
+}
+
+
+.label {
+    background-color: red;
+    font-weight: 600;
+    font-size: 10px;
+    margin: 5px 5px 0 5px;
+    padding: 3px 3px 0 3px;
+}
+
+.input {
+    font-size: 10px;
+    margin: 5px;
+    padding: 5px;
+}

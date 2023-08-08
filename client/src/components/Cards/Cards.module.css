@@ -1,0 +1,10 @@
+.divCards{
+    display: flex;
+    margin-top: 2vw;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.pageNum {
+    color: white;
+}

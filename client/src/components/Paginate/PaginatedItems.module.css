@@ -1,0 +1,19 @@
+.containerPagesNum {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    cursor: pointer;
+    color: blue;
+}
+
+.break {
+    list-style: none;
+    padding: 2px 12px;
+    height: 31.5px;
+    width: 31.5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2px;
+    color: pink;
+}

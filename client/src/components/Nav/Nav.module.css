@@ -1,0 +1,34 @@
+.divNav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+}
+
+.searchBarNav {
+    width: 80%;
+}
+
+.buttonNav1 {
+    width: 100%;
+    border: 3px solid var(--hightlight-color);
+    background: var(--hightlight-color);
+    text-align: center;
+    color: #fff;
+    border-radius: 0 1vw 1vw 0;
+    cursor: pointer;
+    font-size: 1.8vw;
+    margin-right: 10vw;
+}
+
+.buttonNav2 {
+    width: 100%;
+    border: 3px solid var(--hightlight-color);
+    background: var(--hightlight-color);
+    text-align: center;
+    color: #fff;
+    border-radius: 1vw;
+    cursor: pointer;
+    font-size: 1.8vw;
+    margin-right: 10vw;
+}
