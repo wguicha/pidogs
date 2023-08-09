@@ -1,10 +1,12 @@
-import { FETCH_DOGS, UPDATE_PAGES, UPLOAD_TEMP, SEARCH_DOGS, FILTER_BY_NAME, SHOW_ALL } from './action_types'
+import { FETCH_DOGS, UPDATE_PAGES, UPLOAD_TEMP, SEARCH_DOGS, FILTER_BY_NAME, SHOW_ALL, UPDATE_ORDER_PARAMS } from './action_types'
+import { orderDogs } from '../utils/orderDogs';
 
 const initialState = {
     dogs: [],
     allDogs: [],
     pages: { itemOffset: 0, itemsPerPage: 12, itemsLength: 0 },
     temperaments: [],
+    orderParams: { prop: "id", mode:"asc" }
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -45,7 +47,7 @@ const rootReducer = (state = initialState, action) => {
         case FILTER_BY_NAME:
             return {
                 ...state,
-                dogs: state.dogs.filter((dog) => dog.name.toLowerCase().includes(action.payload.toLowerCase())),
+                dogs: orderDogs(state.dogs.filter((dog) => dog.name.toLowerCase().includes(action.payload.toLowerCase())), state.orderParams),
                 pages: {
                     ...state.pages,
                     itemsLength: state.dogs.filter((dog) => dog.name.toLowerCase().includes(action.payload.toLowerCase())).length,
@@ -54,9 +56,16 @@ const rootReducer = (state = initialState, action) => {
         case SHOW_ALL:
         return {
             ...state,
-            dogs: state.allDogs,
+            dogs: orderDogs(state.allDogs, state.orderParams),
             pages: {
                 ...state.pages, itemsLength: state.allDogs.length,
+            }
+        };
+        case UPDATE_ORDER_PARAMS:
+        return {
+            ...state,
+            orderParams: {
+                ...state.orderParams, ...action.payload,
             }
         };
         default:

@@ -1,7 +1,7 @@
-import { FETCH_DOGS, UPDATE_PAGES, UPLOAD_TEMP, SEARCH_DOGS, FILTER_BY_NAME, SHOW_ALL } from './action_types'
+import { FETCH_DOGS, UPDATE_PAGES, UPLOAD_TEMP, SEARCH_DOGS, FILTER_BY_NAME, SHOW_ALL, UPDATE_ORDER_PARAMS } from './action_types'
 import axios from 'axios';
 
-const URL = 'http://localhost:3001/'
+const URL = 'https://pidogs-9fgg.onrender.com/'
 
 export const fetchDogs = (payload) => {
     return async (dispatch) => {
@@ -60,6 +60,7 @@ export const searchDogByKey = (payload) => {
 }
 
 export const filterByName = (payload) => {
+
     return (dispatch) => dispatch({
         type: FILTER_BY_NAME,
         payload: payload,
@@ -69,5 +70,12 @@ export const filterByName = (payload) => {
 export const showAll = () => {
     return (dispatch) => dispatch({
         type: SHOW_ALL
+    })
+}
+
+export const updateOrderParams = (payload) => {
+    return (dispatch) => dispatch({
+        type: UPDATE_ORDER_PARAMS,
+        payload: payload,
     })
 }
