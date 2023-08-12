@@ -2,21 +2,27 @@ import SearchBar from '../SearchBar/SearchBar'
 import styles from './Nav.module.css'
 import { Link } from 'react-router-dom'
 
-export default function Nav(props) {
-   //const { onSearch, onRandom, onClear } = props;
-   //onSearch={onSearch} onRandom={onRandom} onClear={onClear}
+export default function Nav() {
    return (
-        <div className={styles.divNav}>
-            <Link to="/home">
-                <button className={styles.buttonNav1}>HOME</button>
+    <div className={styles.divNav}>
+        <div className={styles.navGroup}>
+            <Link to="/home" className={styles.linkNav}>
+                <li className={styles.linkNav}>Home</li>
             </Link>
-            <Link to="/newdog">
-                <button className={styles.buttonNav2}>AGREGA TU RAZA</button>
+        </div>
+        <div className={styles.navGroup}>
+            <Link to="/newdog" className={styles.linkNav}>
+                <li className={styles.linkNav}>Agrega Tu Raza</li>
             </Link>
-            <Link to="/about">
-                <button className={styles.buttonNav2}>ABOUT</button>
+        </div>
+        <div className={styles.navGroup}>
+            <Link to="/about" className={styles.linkNav}>
+                <li className={styles.linkNav}>Acerca de</li>
             </Link>
+        </div>
+        <div className={styles.navGroup}>
             <SearchBar className={styles.searchBarNav}/>
         </div>
+    </div>
    );
 }

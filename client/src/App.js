@@ -1,11 +1,11 @@
-import './App.css';
 import Cards from './components/Cards/Cards';
 import NewDog from './components/NewDog/NewDog';
-import Nav from './components/Nav/Nav'
+import Detail from './components/Detail/Detail';
 import { useEffect } from 'react';
 import { useDispatch } from "react-redux";
 import { Routes, Route } from 'react-router-dom';
 import { fetchDogs, uploadTemperaments } from './redux/actions';
+import Presentation from './components/Presentation/Presentation';
 
 function App() {
 
@@ -17,13 +17,13 @@ function App() {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
- // onSearch={onSearch} onRandom={onRandom} onClear={onClear}
   return (
-    <div className="App">
-      <Nav />
+    <div>
       <Routes>
+        <Route path="/" element={<Presentation/>} />
         <Route path="/home" element={<Cards/>} />
         <Route path="/newdog" element={<NewDog/>} />
+        <Route path="/detail/:id" element={<Detail />} />
       </Routes>
     </div>
   );

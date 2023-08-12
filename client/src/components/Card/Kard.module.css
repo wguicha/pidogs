@@ -23,18 +23,6 @@ header {
     color: white;
 }
 
-a {
-    text-decoration: none;
-}
-
-a:visited {
-    color: #555566;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
 .divCardContainer {
     height: 13vw;
     min-height: 120px;

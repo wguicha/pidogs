@@ -1,0 +1,24 @@
+.container {
+    background-image: url(../../assets/backgroundDog.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 100px;
+}
+
+.divImg img {
+    position: relative;
+    align-items: flex-end;
+    bottom: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 70%;
+    width: 70%;
+}
+

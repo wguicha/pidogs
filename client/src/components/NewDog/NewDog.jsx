@@ -1,5 +1,6 @@
 import styles from "./NewDog.module.css";
 import { useState } from "react";
+import Nav from '../Nav/Nav';
 import validate from "./validation";
 import { FaPaw } from "react-icons/fa";
 import { MdAddCircle } from "react-icons/md";
@@ -101,6 +102,7 @@ export default function NewDog() {
 
   return (
     <div className={styles.newDogContainer}>
+      <Nav/>
       <div className={styles.leftContainer}>
         <h2 className={styles.titleForm}>CREA TU PROPIA RAZA</h2>
         <FaPaw className={styles.pawForm} />

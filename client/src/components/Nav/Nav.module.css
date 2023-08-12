@@ -1,34 +1,35 @@
 .divNav {
+    position: relative;
+    margin-bottom: 5px;
+    top: 0;
+    left: 0;
+    width: 100%;
     display: flex;
-    flex-direction: row;
+    justify-content: flex-end;
     align-items: center;
-    width: 100%;
 }
 
-.searchBarNav {
-    width: 80%;
+.navGroup {
+    padding: 0 15px 0 15px;
 }
 
-.buttonNav1 {
-    width: 100%;
-    border: 3px solid var(--hightlight-color);
-    background: var(--hightlight-color);
-    text-align: center;
-    color: #fff;
-    border-radius: 0 1vw 1vw 0;
-    cursor: pointer;
-    font-size: 1.8vw;
-    margin-right: 10vw;
+.linkNav {
+    color: var(--strong-color);
+    text-decoration: none;
+    list-style: none;
 }
 
-.buttonNav2 {
-    width: 100%;
-    border: 3px solid var(--hightlight-color);
-    background: var(--hightlight-color);
-    text-align: center;
-    color: #fff;
-    border-radius: 1vw;
-    cursor: pointer;
-    font-size: 1.8vw;
-    margin-right: 10vw;
+.navGroup {
+    color: var(--strong-color);
+    text-decoration: none;
+    list-style: none;
+}
+
+.linkNav:visited {
+    color: var(--light-color);
+}
+
+.linkNav:hover {
+    color: var(--hightlight-color);
+    
 }

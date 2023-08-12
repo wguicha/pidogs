@@ -1,10 +1,12 @@
+.cardsContainer {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
 .divCards{
     display: flex;
     margin-top: 2vw;
     flex-wrap: wrap;
     justify-content: center;
-}
-
-.pageNum {
-    color: white;
 }

@@ -1,0 +1,17 @@
+.divWrap {
+    position: relative;
+    color: var(--strong-color);
+    margin-bottom: 5px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.selectGroup {
+    display: flex;
+    padding: 0 15px 0 15px;
+    justify-content: space-around;
+    align-items: center;
+}

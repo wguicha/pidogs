@@ -6,11 +6,10 @@
 }
 
 :root {
-  --focus-color: #9FFCFD;
-  --strong-color: 	#7c3e1d;
-  --light-color: #f9bf1e;
-  --hightlight-color: #16ff00;
-  --blue-color: #1e06f6;
+  --focus-color: #b06c18;
+  --strong-color: 	#4b2303;
+  --light-color: #f8a72c;
+  --hightlight-color: #ce1430;
 }
 
 body {
@@ -20,7 +19,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: black;
+  background-color: var(--light-color);
 }
 
 code {

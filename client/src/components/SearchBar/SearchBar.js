@@ -34,20 +34,7 @@ export default function SearchBar(props) {
             <input className={styles.inputSearch} onChange={handleChange} type='search' placeholder='Palabra clave..' />
             <button className={styles.buttonSearch} onClick={() => onSearch()}>Buscar</button>
             <i className="fa fa-search"></i>
-            <label className={styles.labelFilter}>Choose to filter:</label>
          </div>
-         <select className={styles.optionGroupFilter} onChange={handleFilterProp}>
-            <option className={styles.optionFilter1} selected>Selecciona...</option>
-            <option className={styles.optionFilter} value="name">Nombre</option>
-            <option className={styles.optionFilter} value="height">Altura</option>
-            <option className={styles.optionFilter} value="weight">Peso</option>
-            <option className={styles.optionFilter} value="life_span">Edad</option>
-         </select>
-         <select className={styles.optionGroupFilter} onChange={handleFilterMode}>
-            <option className={styles.optionFilter} value="asc">Ascendente</option>
-            <option className={styles.optionFilter} value="desc">Descendente</option>
-         </select>
-         <button className={styles.buttonRandom}  onClick={() => onSearch()}>Ordenar</button>
       </div>
    );
 }

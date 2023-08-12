@@ -1,12 +1,9 @@
 /* eslint-disable eqeqeq */
 export const orderDogs = (dogs, orderParams) => {
-    console.log("order dogs:", dogs)
-    console.log("params:", orderParams.prop)
     return dogs.sort((x,y) => {
         let propX = "";
         let propY = "";
         switch (orderParams.prop){
-            //OPCION PARA ASCENDENTE Y DESCENDENTE
             case "name":
                 if(orderParams.mode == "asc"){
                     propX = x.name.toUpperCase();
@@ -31,7 +28,6 @@ export const orderDogs = (dogs, orderParams) => {
                 }
             case "weight":
             case "height":
-            case "lifes_pan":
                 if(orderParams.mode == "asc"){
                     propX = x[orderParams.prop].metric.toUpperCase();
                     propY = y[orderParams.prop].metric.toUpperCase();
@@ -45,6 +41,28 @@ export const orderDogs = (dogs, orderParams) => {
                 } else {
                     propX = x[orderParams.prop].metric.toUpperCase();
                     propY = y[orderParams.prop].metric.toUpperCase();
+                    if (propX > propY) {
+                        return -1;
+                    }
+                    if (propX < propY) {
+                        return 1;
+                    }
+                    return 0;
+                }
+            case "lifeSpan":
+                if(orderParams.mode == "asc"){
+                    propX = parseInt(x[orderParams.prop].split(' ')[0]);
+                    propY = parseInt(y[orderParams.prop].split(' ')[0]);
+                    if (propX < propY) {
+                        return -1;
+                    }
+                    if (propX > propY) {
+                        return 1;
+                    }
+                    return 0;
+                } else {
+                    propX = parseInt(x[orderParams.prop].split(' ')[0]);
+                    propY = parseInt(y[orderParams.prop].split(' ')[0]);
                     if (propX > propY) {
                         return -1;
                     }
