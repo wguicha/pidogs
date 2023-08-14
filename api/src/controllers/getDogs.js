@@ -4,7 +4,6 @@ const { API_KEY } = process.env;
 const URL = 'https://api.thedogapi.com/v1/breeds?api_key='
 
 async function getDogs (req, res) {
-    console.log("URL:", `${URL}${API_KEY}`)
     try{
         const breeds = []
         const { name } = req.query

@@ -4,10 +4,8 @@ import axios from 'axios';
 const URL = 'https://pidogs-9fgg.onrender.com/'
 
 export const fetchDogs = (payload) => {
-    console.log("URL ACTION: ", `${URL}dogs`)
     return async (dispatch) => {
         try {
-            console.log("pase: ")
             await axios.get(`${URL}dogs`, payload)
             .then(({ data }) => {
                 console.log("data: ", data)
