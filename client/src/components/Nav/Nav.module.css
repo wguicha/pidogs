@@ -1,6 +1,6 @@
 .divNav {
     position: relative;
-    margin-bottom: 5px;
+    margin-bottom: 0.1vw;
     top: 0;
     left: 0;
     width: 100%;
@@ -10,13 +10,18 @@
 }
 
 .navGroup {
-    padding: 0 15px 0 15px;
+    height: 3vw;
+    padding: 0 0.82vw 0 0.82vw;
+    margin: .9vw 0;
+
 }
 
 .linkNav {
     color: var(--strong-color);
     text-decoration: none;
     list-style: none;
+    font-size: 1.2vw;
+    font-weight: 600;
 }
 
 .navGroup {
@@ -31,5 +36,4 @@
 
 .linkNav:hover {
     color: var(--hightlight-color);
-    
 }

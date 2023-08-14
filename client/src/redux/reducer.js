@@ -47,7 +47,7 @@ const rootReducer = (state = initialState, action) => {
         case FILTER_BY_NAME:
             return {
                 ...state,
-                dogs: orderDogs(state.dogs.filter((dog) => dog.name.toLowerCase().includes(action.payload.toLowerCase())), state.orderParams),
+                dogs: orderDogs(state.allDogs.filter((dog) => dog.name.toLowerCase().includes(action.payload.toLowerCase())), state.orderParams),
                 pages: {
                     ...state.pages,
                     itemsLength: state.dogs.filter((dog) => dog.name.toLowerCase().includes(action.payload.toLowerCase())).length,

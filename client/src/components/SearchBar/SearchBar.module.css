@@ -1,10 +1,35 @@
-.divNav {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 40px 100px;
+.searchBox{
+    position: relative;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
+}
+.inputSearch{
+    font-size: 1.2vw;
+    font-weight: 600;
+    padding: 0.4vw 2vw 0.4vw 0.8vw;
+    margin-right: .8vw;
+    border-style: none;
+    letter-spacing: 0.1vw;
+    outline: none;
+    border-radius: 25px;
+    background-color: black;
+    color: var(--light-color);
+}
+.btnSearch{
+    font-size: 1.2vw;
+    font-weight: 200;
+    padding: 0;
+    border-style: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 50%;
+    right: 0vw;
+    color:var(--highlight-color) ;
+    background-color:transparent;
+    pointer-events: painted;
+}
+
+.btnSearch:hover {
+    background-color:var(--highlight-color) ;
 }

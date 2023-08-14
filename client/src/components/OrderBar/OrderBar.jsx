@@ -2,6 +2,7 @@ import { useState } from 'react';
 import styles from './OrderBar.module.css'
 import { useDispatch } from "react-redux";
 import { filterByName, showAll, updateOrderParams } from '../../redux/actions';
+import { BsBoxArrowInRight } from 'react-icons/bs';
 
 
 
@@ -29,7 +30,7 @@ export default function SearchBar(props) {
       <div className={styles.selectGroup}>
          <p>Ordena por:</p>
          <select className={styles.optionGroupFilter} onChange={handleFilterProp}>
-            <option className={styles.optionFilter1} selected>Selecciona..</option>
+            <option className={styles.optionFilter} selected>Selecciona..</option>
             <option className={styles.optionFilter} value="name">Nombre</option>
             <option className={styles.optionFilter} value="height">Altura</option>
             <option className={styles.optionFilter} value="weight">Peso</option>
@@ -42,7 +43,7 @@ export default function SearchBar(props) {
                <option className={styles.optionFilter} value="asc" selected>Ascendente</option>
                <option className={styles.optionFilter} value="desc">Descendente</option>
          </select>
-         <button className={styles.buttonSearch} onClick={() => onSearch()}>Ordenar</button>
+         <button className={styles.buttonSearch} onClick={() => onSearch()}><BsBoxArrowInRight size={12}/></button>
       </div>
    </div>
    );
