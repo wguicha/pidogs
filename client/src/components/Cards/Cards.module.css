@@ -2,6 +2,7 @@
     position: relative;
     display: flex;
     flex-direction: column;
+    scrollbar-width: none;
 }
 
 .divCards{
@@ -19,3 +20,37 @@
     background-color: var(--light-color);
     opacity: 90%;
 }
+
+.pageNum {
+    position: static;
+    margin-bottom: 1vw;
+    bottom: 0;
+    width: 98%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.pageNumLi {
+    color: var(--strong-color);
+    text-decoration: none;
+    list-style: none;
+    font-size: 2vw;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+.pageNumLi:hover {
+    color: var(--hightlight-color);
+}
+
+.pageNumLiSelected {
+    background: var(--strong-color);
+    border-radius: 50%;
+    color: var(--focus-color);
+    margin-top: 1vw;
+    padding: 0.8vw;
+
+}
+
+

@@ -4,13 +4,12 @@ import OrderBar from '../OrderBar/OrderBar';
 import styles from './Cards.module.css'
 import { useSelector, useDispatch } from "react-redux";
 import { jumpPage } from '../../redux/actions';
-import PaginatedItems from '../Paginate/PaginatedItems';
 
 export default function Cards() {
    let pagesN = [];
    const dispatch = useDispatch()
-   const { dogs, pages, pageAdm } = useSelector((state) => state)
-   
+   const { dogs, pageAdm } = useSelector((state) => state)
+
    const partialDogs = dogs.slice(pageAdm.currentPage * pageAdm.itemsPerPage - pageAdm.itemsPerPage, pageAdm.currentPage * pageAdm.itemsPerPage)
    //const partialDogs = dogs.slice(pages.itemOffset, pages.itemOffset + pages.itemsPerPage)
 
@@ -38,11 +37,13 @@ export default function Cards() {
          }
          </div>
          <div className={styles.pageNum}>
-            <PaginatedItems />
-         </div>
-         <div>
             {pagesN.map((x) => {
-               return <li key={x} value={x} onClick={handlePages} className={styles.pageNum}>{x}</li>
+               return <li key={x} 
+               value={x} 
+               onClick={handlePages} 
+               className={`${styles.pageNumLi} ${ x === pageAdm.currentPage? styles.pageNumLiSelected : ""}`}>
+               {x}
+               </li>
             })}
          </div>
       </div>

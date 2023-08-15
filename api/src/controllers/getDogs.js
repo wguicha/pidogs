@@ -1,5 +1,6 @@
 const axios = require('axios');
 const { API_KEY } = process.env;
+const { Dog } = require('../db');
 
 const URL = 'https://api.thedogapi.com/v1/breeds?api_key='
 
@@ -20,6 +21,10 @@ async function getDogs (req, res) {
                 breeds.push({ id: x.id, name: x.name, height: x.height, weight: x.height, lifeSpan: x.life_span,  image: x.image.url })
             })
         }
+
+        const dosgDb = await Dog.findAll();
+
+        breeds.push(dosgDb);
 
         res.status(200).json(breeds);
 

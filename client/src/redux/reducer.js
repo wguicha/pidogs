@@ -4,7 +4,6 @@ import { orderDogs } from '../utils/orderDogs';
 const initialState = {
     dogs: [],
     allDogs: [],
-    pages: { itemOffset: 0, itemsPerPage: 12, itemsLength: 0 },
     temperaments: [],
     orderParams: { prop: "id", mode:"asc" },
     pageAdm : { numberPages: 0, itemsPerPage: 12, currentPage: 0}
@@ -17,10 +16,6 @@ const rootReducer = (state = initialState, action) => {
                 ...state,
                 dogs: action.payload,
                 allDogs : action.payload,
-                pages: {
-                    ...state.pages,
-                    itemsLength: action.payload.length,
-                },
                 pageAdm: { ...state.pageAdm,
                     numberPages: Math.ceil(action.payload.length/state.pageAdm.itemsPerPage),
                     currentPage: Math.ceil(action.payload.length/state.pageAdm.itemsPerPage) > 0? 1 : 0,
