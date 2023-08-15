@@ -1,4 +1,4 @@
-import { FETCH_DOGS, UPDATE_PAGES, UPLOAD_TEMP, SEARCH_DOGS, FILTER_BY_NAME, SHOW_ALL, UPDATE_ORDER_PARAMS } from './action_types'
+import { FETCH_DOGS, UPDATE_PAGES, UPLOAD_TEMP, SEARCH_DOGS, FILTER_BY_NAME, SHOW_ALL, UPDATE_ORDER_PARAMS, JUMP_PAGE } from './action_types'
 import axios from 'axios';
 
 const URL = 'https://pidogs-9fgg.onrender.com/'
@@ -75,6 +75,13 @@ export const showAll = () => {
 export const updateOrderParams = (payload) => {
     return (dispatch) => dispatch({
         type: UPDATE_ORDER_PARAMS,
+        payload: payload,
+    })
+}
+
+export const jumpPage = (payload) => {
+    return (dispatch) => dispatch({
+        type: JUMP_PAGE,
         payload: payload,
     })
 }

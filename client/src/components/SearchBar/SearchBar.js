@@ -20,15 +20,6 @@ export default function SearchBar(props) {
    const handleChange = (event) => {
       setKey(event.target.value);
    }
-/*
-   const handleFilterProp = (event) => {
-      dispatch(updateOrderParams({prop: event.target.value}))
-   }
-
-   const handleFilterMode = (event) => {
-      dispatch(updateOrderParams({mode: event.target.value}))
-   }
-*/
    return (
       <div className={styles.searchBox}>
          <input type="text" className={styles.inputSearch} onChange={handleChange} placeholder="Escriba palabra clave..." />

@@ -1,4 +1,4 @@
-import { FETCH_DOGS, UPDATE_PAGES, UPLOAD_TEMP, SEARCH_DOGS, FILTER_BY_NAME, SHOW_ALL, UPDATE_ORDER_PARAMS } from './action_types'
+import { FETCH_DOGS, UPDATE_PAGES, UPLOAD_TEMP, SEARCH_DOGS, FILTER_BY_NAME, SHOW_ALL, UPDATE_ORDER_PARAMS, JUMP_PAGE } from './action_types'
 import { orderDogs } from '../utils/orderDogs';
 
 const initialState = {
@@ -6,7 +6,8 @@ const initialState = {
     allDogs: [],
     pages: { itemOffset: 0, itemsPerPage: 12, itemsLength: 0 },
     temperaments: [],
-    orderParams: { prop: "id", mode:"asc" }
+    orderParams: { prop: "id", mode:"asc" },
+    pageAdm : { numberPages: 0, itemsPerPage: 12, currentPage: 0}
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -17,15 +18,21 @@ const rootReducer = (state = initialState, action) => {
                 dogs: action.payload,
                 allDogs : action.payload,
                 pages: {
-                    ...state.pages, itemsLength: action.payload.length,
+                    ...state.pages,
+                    itemsLength: action.payload.length,
+                },
+                pageAdm: { ...state.pageAdm,
+                    numberPages: Math.ceil(action.payload.length/state.pageAdm.itemsPerPage),
+                    currentPage: Math.ceil(action.payload.length/state.pageAdm.itemsPerPage) > 0? 1 : 0,
                 }
             };
 
         case UPDATE_PAGES:
             return {
                 ...state,
-                pages: {
-                    ...state.pages, itemOffset: action.payload,
+                pageAdm: { ...state.pageAdm,
+                    numberPages: Math.ceil(action.payload.length/state.pageAdm.itemsPerPage),
+                    currentPage: Math.ceil(action.payload.length/state.pageAdm.itemsPerPage) > 0? 1 : 0,
                 }
             };
 
@@ -40,25 +47,28 @@ const rootReducer = (state = initialState, action) => {
             return {
                 ...state,
                 dogs: action.payload,
-                pages: {
-                    ...state.pages, itemsLength: action.payload.length,
+                pageAdm: { ...state.pageAdm,
+                    numberPages: Math.ceil(action.payload.length/state.pageAdm.itemsPerPage),
+                    currentPage: Math.ceil(action.payload.length/state.pageAdm.itemsPerPage) > 0? 1 : 0,
                 }
             };
         case FILTER_BY_NAME:
             return {
                 ...state,
                 dogs: orderDogs(state.allDogs.filter((dog) => dog.name.toLowerCase().includes(action.payload.toLowerCase())), state.orderParams),
-                pages: {
-                    ...state.pages,
-                    itemsLength: state.dogs.filter((dog) => dog.name.toLowerCase().includes(action.payload.toLowerCase())).length,
+                pageAdm: {
+                    ...state.pageAdm,
+                    numberPages: Math.ceil(orderDogs(state.allDogs.filter((dog) => dog.name.toLowerCase().includes(action.payload.toLowerCase())), state.orderParams).length/state.pageAdm.itemsPerPage),
+                    currentPage: Math.ceil(orderDogs(state.allDogs.filter((dog) => dog.name.toLowerCase().includes(action.payload.toLowerCase())), state.orderParams).length/state.pageAdm.itemsPerPage) > 0? 1 : 0,
                 }
             };
         case SHOW_ALL:
         return {
             ...state,
             dogs: orderDogs(state.allDogs, state.orderParams),
-            pages: {
-                ...state.pages, itemsLength: state.allDogs.length,
+            pageAdm: { ...state.pageAdm,
+                numberPages: Math.ceil(state.allDogs.length/state.pageAdm.itemsPerPage),
+                currentPage: Math.ceil(state.allDogs.length/state.pageAdm.itemsPerPage) > 0? 1 : 0,
             }
         };
         case UPDATE_ORDER_PARAMS:
@@ -68,6 +78,13 @@ const rootReducer = (state = initialState, action) => {
                 ...state.orderParams, ...action.payload,
             }
         };
+        case JUMP_PAGE:
+        return {
+            ...state,
+            pageAdm: {
+                ...state.pageAdm, currentPage: action.payload,
+            }
+        }
         default:
         return {...state};
     }

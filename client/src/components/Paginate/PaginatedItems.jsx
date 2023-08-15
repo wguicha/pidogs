@@ -7,10 +7,6 @@ export default function PaginatedItems() {
 
   const { pages } = useSelector((state) => state)
   const dispatch = useDispatch()
-  //const endOffset = pages.itemOffset + pages.itemsPerPage;
-
-  //console.log(`Loading items from ${pages.itemOffset} to ${endOffset}, total items: ${pages.itemsLength}`);
-
   const pageCount = Math.ceil(pages.itemsLength / pages.itemsPerPage);
 
   const handlePageClick = (event) => {
