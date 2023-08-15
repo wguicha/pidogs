@@ -8,7 +8,6 @@ export const fetchDogs = (payload) => {
         try {
             await axios.get(`${URL}dogs`, payload)
             .then(({ data }) => {
-                console.log("data: ", data)
                 return dispatch({
                     type: FETCH_DOGS,
                     payload: data,

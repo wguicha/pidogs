@@ -4,21 +4,47 @@
     background-size: 100% 100%;
     position: relative;
     width: 100%;
-    min-height: 100vh;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 100px;
+}
+
+.divButton {
+    height: 40vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.divImg {
+    height: 60vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
 }
 
 .divImg img {
+    height: 100%;
+    width: 100%;
+}
+
+.button {
+    font-size: 5vw;
+    width: 100%;
+    padding: 2vw;
+    cursor: pointer;
+    border-radius: 5%;
     position: relative;
-    align-items: flex-end;
-    bottom: 0px;
-    margin-left: auto;
-    margin-right: auto;
-    height: 70%;
-    width: 70%;
+    justify-content: center;
+    color:var(--hightlight-color) ;
+    background-color:var(--strong-color);
+}
+
+.button:visited {
+    color:var(--highlight-color) ;
 }
 

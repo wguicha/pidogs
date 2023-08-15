@@ -1,5 +1,5 @@
 .divNav {
-    position: relative;
+    position: static;
     margin-bottom: 0.1vw;
     top: 0;
     left: 0;
@@ -36,4 +36,8 @@
 
 .linkNav:hover {
     color: var(--hightlight-color);
+}
+
+.searchBarNavHidden {
+    display: none;
 }

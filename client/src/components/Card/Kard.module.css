@@ -1,26 +1,15 @@
-h2 {
+.h2Name {
     font-weight: 600;
     font-style: italic;
     font-family: "Fira Sans Condensed", sans-serif;
     font-size:calc(8px + 0.3vw);
 }
 
-h3 {
+.h3Spec {
     font-weight: 300;
     font-style: italic;
     font-family: "Fira Sans Condensed", sans-serif;
     font-size:calc(7px + 0.3vw);
-}
-
-header {
-    height: 2em;
-    background-color: black;
-    margin: 0 0 0 0;
-    padding: auto;
-    font-size: 2em;
-    text-align: center;
-    line-height: 2em;
-    color: white;
 }
 
 .divCardContainer {
@@ -29,6 +18,7 @@ header {
     width: 26vw;
     min-width: 300px;
     margin-bottom: calc(5px + 0.3vw);
+
 }
 
 .divCard {
@@ -37,8 +27,8 @@ header {
     min-height: 120px;
     width: 13vw;
     min-width: 120px;
-    border-radius: calc(60px + 6.5vw);
-    background: linear-gradient(121deg, rgba(255,255,255,0) 13%, rgba(0,159,255,1) 100%);
+    border-radius: calc(60px);
+    background: linear-gradient(121deg, var(--hightlight-color) 13%, var(--strong-color) 100%);
     transition: all 300ms ease-in;
     transition-delay: 1s;
 
@@ -46,7 +36,7 @@ header {
 .divCard:hover {
     width: 26vw;
     min-width: 240px;
-    border-radius: 7vw .7vw 7vw 7vw;
+    border-radius: 50px 5px 50px 60px;
     transition: all 600ms ease-out;
 }
 
@@ -56,15 +46,17 @@ header {
     overflow: hidden;
     text-overflow: hidden;
     color: white;
+    text-decoration: none;
     white-space: nowrap;
     width: 0;
     height: auto;
+    margin-left: 10px;
     margin-top: calc(7px + 1vw);
     transition: all 270ms ease-in;
     transition-delay: 1s;
 }
 
-.divCard:hover div *{
+.divCard:hover div * {
     display: flex;
     visibility: visible;
     transition: all 1s ease-out;
@@ -83,6 +75,7 @@ header {
     flex-shrink: 0;
     object-fit: cover;
 }
+
 .divCard .divImg img{
     height: 11.7vw;
     min-height: 108px;
@@ -91,7 +84,7 @@ header {
     transition: none;
     display: float;
     position: relative;
-    border: calc(6px + 0.3vw) solid white;
+    border: calc(6px + 0.3vw) solid var(--focus-color);
     margin: 0 0 0 0; 
     padding: 0 0 0 0;
 }

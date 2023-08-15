@@ -1,32 +1,36 @@
-const validate = (userData, errors, setErrors) => {
-    const regexEmail = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/
-    const regexNumber = /\d/
-    let errorsEmail = [];
-    let errorsPassword = [];
+const validate = (newDog, errors, setErrors) => {
 
-    if(!userData.email) {
-        errorsEmail.push('El campo email esta vacio')
+    let errorsName = [];
+    let errorsImage = [];
+    let errorsHeight = [];
+    let errorsWeight = [];
+    let errorsLifeSpan = [];
+
+    if(!newDog.name) {
+        errorsName.push('El campo nombre esta vacio')
     }
-    if(userData.email.length > 35 ) {
-        errorsEmail.push('El email debe tener maximo 35 caracteres')
+    if(newDog.name.length <= 8 ) {
+        errorsName.push('El nombre debe tener al menos 8 caracteres')
     }
-    if (!regexEmail.test(userData.email)) {
-        errorsEmail.push('Formato del email invalido')
+    if(!newDog.image) {
+        errorsImage.push('Debe agregar la URL de una imagen')
+    }
+    if(newDog.minHeight > newDog.maxHeight) {
+        errorsHeight.push('La minima altura debe ser menor a la maxima altura')
+    }
+    if(newDog.minWeigth > newDog.maxWeigth) {
+        errorsWeight.push('El minimo peso debe ser menor al maxima peso')
+    }
+    if(!(newDog.lifeSpan > 0)) {
+        errorsLifeSpan.push('La esperanza de vida debe ser un numero:')
     }
 
-    if(!userData.password) {
-        errorsPassword.push('El campo password esta vacio')
-    }
-    if(userData.password.length < 6 || userData.password.length > 10){
-        errorsPassword.push('La longitud del password debe ser entre 6 y 10 caracteres')
-    }
-    if(!regexNumber.test(userData.password)){
-        errorsPassword.push('El password debe contener al menos un número')
-    }
-    
     setErrors({
-        email: errorsEmail,
-        password: errorsPassword
+        name: errorsName,
+        image: errorsImage,
+        height: errorsHeight,
+        weight : errorsWeight,
+        lifeSpan: errorsLifeSpan,
      })
 }
 

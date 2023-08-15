@@ -1,0 +1,9 @@
+.divAbout {
+    color: var(--focus-color);
+}
+
+.imgAbout{
+    width: 350px;
+    height: 262px;
+    border-radius: 1vw;
+}

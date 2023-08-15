@@ -11,7 +11,7 @@ function Detail(props) {
     const { name, height, weight, lifeSpan, image } = filteredDogs[0];
     return (
     <div className={styles.divCardContainer}>
-        <Nav />
+        <Nav searchBarNavHidden='yes'/>
         <div className={styles.divCard} key={id}>
             <div className={styles.divImg}>
                 <img src={image} alt={name + '-image'} />

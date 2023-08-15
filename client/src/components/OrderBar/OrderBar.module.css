@@ -43,8 +43,8 @@
 }
 
 .buttonSearch {
-    font-size: 1.2vw;
-    font-weight: 200;
+    font-size: 1.5vw;
+    font-weight: 600;
     padding: 0;
     margin-left: 0.8vw;
     border-style: none;
@@ -52,7 +52,11 @@
     cursor: pointer;
     border-radius: 50%;
     right: 0vw;
-    color:var(--highlight-color) ;
+    color:var(--hightlight-color) ;
     background-color:transparent;
     pointer-events: painted;
+}
+
+.buttonSearch:hover {
+    color:var(--focus-color);
 }

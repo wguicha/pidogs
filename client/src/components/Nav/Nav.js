@@ -2,10 +2,11 @@ import SearchBar from '../SearchBar/SearchBar'
 import styles from './Nav.module.css'
 import { Link } from 'react-router-dom'
 
-export default function Nav() {
+export default function Nav(props) {
+    const {searchBarNavHidden} = props
    return (
     <div className={styles.divNav}>
-        <div className={styles.navGroup}>
+        <div className={`${styles.navGroup} ${searchBarNavHidden == 'yes' ? styles.searchBarNavHidden : "" }`}>
             <SearchBar className={styles.searchBarNav}/>
         </div>
         <div className={styles.navGroup}>

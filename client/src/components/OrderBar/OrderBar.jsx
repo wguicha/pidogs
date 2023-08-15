@@ -30,7 +30,7 @@ export default function SearchBar(props) {
       <div className={styles.selectGroup}>
          <p>Ordena por:</p>
          <select className={styles.optionGroupFilter} onChange={handleFilterProp}>
-            <option className={styles.optionFilter} selected>Selecciona..</option>
+            <option className={styles.optionFilter} defaultValue>Selecciona..</option>
             <option className={styles.optionFilter} value="name">Nombre</option>
             <option className={styles.optionFilter} value="height">Altura</option>
             <option className={styles.optionFilter} value="weight">Peso</option>
@@ -40,7 +40,7 @@ export default function SearchBar(props) {
       <div className={styles.selectGroup}>
          <p>Selecciona el sentido:</p>
          <select className={styles.optionGroupFilter} onChange={handleFilterMode}>
-               <option className={styles.optionFilter} value="asc" selected>Ascendente</option>
+               <option className={styles.optionFilter} value="asc" defaultValue>Ascendente</option>
                <option className={styles.optionFilter} value="desc">Descendente</option>
          </select>
          <button className={styles.buttonSearch} onClick={() => onSearch()}><BsBoxArrowInRight size={12}/></button>

@@ -1,52 +1,57 @@
 .newDogContainer {
     align-items: center;
-    background: #D8AA96;
-    color: rgba(0, 0, 0, 0.8);
+    background: var(--focus-color);
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
     font-family: "Montserrat", sans-serif;
-    font-size: 14px;
-    font-weight: 400;
-    height: 100vh;
+    height: 100%;
     grid-template-areas: "left right";
-    max-width: 900px;
+    width: 80vw;
+    min-width: 300px;
     margin: auto;
 }
 
+.form {
+    position: relative;
+
+}
+
 .leftContainer {
-    background: yellow;
+    background: var(--light-color);
     overflow: hidden;
-    padding: 40px 0 0 0;
+    padding: 5vw 0 0 0;
     position: relative;
     text-align: center;
-    width: 300px;
-    height: 70vh;
+    width: 60%;
+    max-width: 300px;
+    min-width: 180px;
+    height: 80vh;
 }
 .titleForm {
-    color: #F7B1AB;
+    color: var(--strong-color);
     display: inline-block;
-    font-size: 24px;
+    font-size: 2.5vw;
 }
 .pawForm {
-    background: #F7B1AB;
+    background: var(--strong-color);
     border-radius: 50%;
-    color: #807182;
-    font-size: 50px;
-    margin-top: 5px;
-    padding: 10px;
+    color: var(--focus-color);
+    font-size: 5vw;
+    margin-top: 1vw;
+    padding: 0.8vw;
     transform: rotate(-45deg);
 }
 .leftContainerImg {
-    bottom: 0px;
-    text-align: center;
+    position: relative ;
+
 }
 .leftContainerImg:before {
-    background: #807182;
+    background: var(--strong-color);
+    opacity: 0.3;
     content: "";
     height: 100%;
     left: 0;
-    opacity: 0.4;
     position: absolute;
     width: 100%;
     z-index: 1;
@@ -57,9 +62,11 @@
 }
 
 .rightContainer {
-    background-color: yellow;
-    width: 300px;
-    height: auto;
+    position: relative;
+    width: 60%;
+    min-width: 180px;
+    max-width: 300px;
+    height: 80vh;
 }
 
 .inputLabel {
@@ -67,7 +74,6 @@
     display: flex;
     flex-direction: column;
     align-content: space-around;
-    background-color: red;
 }
 
 .inputLabelGroup {
@@ -76,7 +82,6 @@
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    background-color: blue;
 }
 
 .inputLabelShort {
@@ -84,14 +89,12 @@
     display: flex;
     flex-direction: column;
     align-content: center;
-    background-color: pink;
 }
 
 
 .label {
-    background-color: red;
     font-weight: 600;
-    font-size: 10px;
+    font-size: 8pt;
     margin: 5px 5px 0 5px;
     padding: 3px 3px 0 3px;
 }
@@ -99,5 +102,57 @@
 .input {
     font-size: 10px;
     margin: 5px;
-    padding: 5px;
+    padding: 0.4vw 2vw 0.4vw 0.8vw;
+    border-style: none;
+    letter-spacing: 0.1vw;
+    outline: none;
+    border-radius: 25px;
+    background-color: black;
+    color: var(--light-color);
+}
+
+.buttonSubmit {
+    font-size: 4vw;
+    width: 100%;
+    padding-top: 2vw;
+    border-style: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 50%;
+    position: relative;
+    justify-content: center;
+    color:var(--hightlight-color) ;
+    background-color:transparent;
+    pointer-events: painted;
+}
+
+.buttonSubmit:hover {
+    color:var(--strong-color);
+}
+
+.labelLifeSpan {
+    position: relative;
+    left: -20px;
+}
+
+.inputLifeSpan {
+    position: relative;
+    left: -5px;
+
+}
+
+.labelTemp {
+    position: relative;
+    left: -4px;
+}
+
+.error {
+    color: red;
+    font-size: 0.5em;
+    font-weight: 100;
+    /*text-shadow: 0.5px 0.5px 1px red, 0 0 1em white, 0 0 0.2em white;*/
+}
+
+.inputIncorrect {
+    background-color: #e15244;
 }

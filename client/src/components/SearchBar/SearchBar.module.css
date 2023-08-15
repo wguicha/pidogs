@@ -17,7 +17,7 @@
     color: var(--light-color);
 }
 .btnSearch{
-    font-size: 1.2vw;
+    font-size: 1.5vw;
     font-weight: 200;
     padding: 0;
     border-style: none;
@@ -25,11 +25,11 @@
     cursor: pointer;
     border-radius: 50%;
     right: 0vw;
-    color:var(--highlight-color) ;
+    color:var(--hightlight-color);
     background-color:transparent;
     pointer-events: painted;
 }
 
 .btnSearch:hover {
-    background-color:var(--highlight-color) ;
+    color:var(--focus-color);
 }

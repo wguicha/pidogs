@@ -11,8 +11,10 @@ export default function Cards() {
 
    return (
       <div className={styles.cardsContainer}>
-         <Nav />
-         <OrderBar />
+         <div className={styles.header}>
+            <Nav searchBarNavHidden="no" />
+            <OrderBar />
+         </div>
          <div className={styles.divCards}>{
             partialDogs.map((dog) => {
                return <Card dog={dog} key={dog.id}/>

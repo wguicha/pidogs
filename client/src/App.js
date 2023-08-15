@@ -1,5 +1,6 @@
 import Cards from './components/Cards/Cards';
 import NewDog from './components/NewDog/NewDog';
+import About from './components/About/About';
 import Detail from './components/Detail/Detail';
 import { useEffect } from 'react';
 import { useDispatch } from "react-redux";
@@ -23,6 +24,7 @@ function App() {
         <Route path="/" element={<Presentation/>} />
         <Route path="/home" element={<Cards/>} />
         <Route path="/newdog" element={<NewDog/>} />
+        <Route path="/about" element={<About/>} />
         <Route path="/detail/:id" element={<Detail />} />
       </Routes>
     </div>
