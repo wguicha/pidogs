@@ -26,6 +26,8 @@ async function getDogs (req, res) {
 
         breeds.push(dosgDb);
 
+        console.log(breeds);
+
         res.status(200).json(breeds);
 
     } catch (err) {
