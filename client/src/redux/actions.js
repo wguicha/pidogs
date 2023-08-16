@@ -1,4 +1,4 @@
-import { FETCH_DOGS, UPDATE_PAGES, UPLOAD_TEMP, SEARCH_DOGS, FILTER_BY_NAME, SHOW_ALL, UPDATE_ORDER_PARAMS, JUMP_PAGE, ADD_DOG } from './action_types'
+import { FETCH_DOGS, UPDATE_PAGES, UPLOAD_TEMP, SEARCH_DOGS, FILTER_BY_NAME, SHOW_ALL, UPDATE_ORDER_PARAMS, JUMP_PAGE, ADD_DOG, UPDATE_SEARCH_KEY } from './action_types'
 import axios from 'axios';
 
 const URL = 'https://pidogs-9fgg.onrender.com/'
@@ -90,6 +90,14 @@ export const addDog = (payload) => {
     console.log("payload:", payload);
     return (dispatch) => dispatch({
         type: ADD_DOG,
+        payload: payload,
+    })
+}
+
+export const updateSearchKey = (payload) => {
+    console.log("payload:", payload);
+    return (dispatch) => dispatch({
+        type: UPDATE_SEARCH_KEY,
         payload: payload,
     })
 }

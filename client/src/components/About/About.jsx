@@ -6,8 +6,12 @@ export default function About() {
     return (
         <div className={styles.divAbout}>
             <Nav searchBarNavHidden='yes'/>
-            <h1>WILLIAM GUICHA - FRONTEND DEVELOPER</h1>
-            <img className={styles.imgAbout} src={myPhoto} alt="Any"/>
+            <div className={styles.divTitle}>
+                <h1>WILLIAM GUICHA - FRONTEND DEVELOPER</h1>
+            </div>
+            <div className={styles.divImg}>
+                <img className={styles.imgAbout} src={myPhoto} alt="Any"/>
+            </div>
         </div>
     );
 

@@ -1,6 +1,5 @@
-import { useState } from 'react';
 import styles from './OrderBar.module.css'
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { filterByName, showAll, updateOrderParams } from '../../redux/actions';
 import { BsBoxArrowInRight } from 'react-icons/bs';
 
@@ -8,13 +7,13 @@ import { BsBoxArrowInRight } from 'react-icons/bs';
 
 export default function SearchBar(props) {
    // eslint-disable-next-line no-unused-vars
-   const [key, setKey] = useState('');
    const dispatch = useDispatch()
+   const searchKey = useSelector((state) => state.searchKey)
 
    const onSearch = () => {
-      console.log("key:", key)
-      key
-      ? dispatch(filterByName(key))
+      console.log("key:", searchKey)
+      searchKey
+      ? dispatch(filterByName(searchKey))
       : dispatch(showAll())
    }
 

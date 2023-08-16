@@ -7,6 +7,7 @@ import { useDispatch } from "react-redux";
 import { Routes, Route } from 'react-router-dom';
 import { fetchDogs, uploadTemperaments } from './redux/actions';
 import Presentation from './components/Presentation/Presentation';
+import PageNotFound from './components/PageNotFound/PageNotFound';
 
 function App() {
 
@@ -26,6 +27,7 @@ function App() {
         <Route path="/newdog" element={<NewDog/>} />
         <Route path="/about" element={<About/>} />
         <Route path="/detail/:id" element={<Detail />} />
+        <Route path='*' element={<PageNotFound />}/>
       </Routes>
     </div>
   );

@@ -1,24 +1,23 @@
-import { useState } from 'react';
 import styles from './SearchBar.module.css'
-import { useDispatch } from "react-redux";
-import { filterByName, showAll, updateOrderParams } from '../../redux/actions';
+import { useDispatch, useSelector } from "react-redux";
+import { filterByName, showAll, updateSearchKey } from '../../redux/actions';
 import { FaSearch } from 'react-icons/fa';
 
 
 
 export default function SearchBar(props) {
-   const [key, setKey] = useState('');
+   const searchKey = useSelector((state) => state.searchKey)
    const dispatch = useDispatch()
 
    const onSearch = () => {
-      key
-      ? dispatch(filterByName(key))
+      searchKey
+      ? dispatch(filterByName(searchKey))
       : dispatch(showAll())
    }
 
 
    const handleChange = (event) => {
-      setKey(event.target.value);
+      dispatch(updateSearchKey(event.target.value));
    }
    return (
       <div className={styles.searchBox}>

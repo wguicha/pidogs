@@ -1,4 +1,4 @@
-import { FETCH_DOGS, UPDATE_PAGES, UPLOAD_TEMP, SEARCH_DOGS, FILTER_BY_NAME, SHOW_ALL, UPDATE_ORDER_PARAMS, JUMP_PAGE, ADD_DOG } from './action_types'
+import { FETCH_DOGS, UPDATE_PAGES, UPLOAD_TEMP, SEARCH_DOGS, FILTER_BY_NAME, SHOW_ALL, UPDATE_ORDER_PARAMS, JUMP_PAGE, ADD_DOG, UPDATE_SEARCH_KEY } from './action_types'
 import { orderDogs } from '../utils/orderDogs';
 
 const initialState = {
@@ -6,7 +6,8 @@ const initialState = {
     allDogs: [],
     temperaments: [],
     orderParams: { prop: "id", mode:"asc" },
-    pageAdm : { numberPages: 0, itemsPerPage: 12, currentPage: 0}
+    pageAdm : { numberPages: 0, itemsPerPage: 12, currentPage: 0},
+    searchKey: ""
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -94,6 +95,11 @@ const rootReducer = (state = initialState, action) => {
                     }
                 ]
             };
+        case UPDATE_SEARCH_KEY:
+            return {
+                ...state,
+                searchKey: action.payload
+            }
         default:
         return {...state};
     }
