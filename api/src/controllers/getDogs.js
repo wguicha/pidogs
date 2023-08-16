@@ -21,15 +21,10 @@ async function getDogs (req, res) {
                 breeds.push({ id: x.id, name: x.name, height: x.height, weight: x.height, lifeSpan: x.life_span,  image: x.image.url })
             })
         }
-        console.log("Llegue aqui");
-        console.log("breeds:", breeds);
         
-        const dosgDb = await Dog.findAll();
+        //const dosgDb = await Dog.findAll();
 
         //breeds = [...breeds, ...dosgDb]
-
-
-        console.log("dosgDb:", dosgDb);
 
         res.status(200).json(breeds);
 
