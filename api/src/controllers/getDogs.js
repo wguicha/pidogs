@@ -24,7 +24,7 @@ async function getDogs (req, res) {
 
         const dosgDb = await Dog.findAll();
 
-        breeds.push(dosgDb);
+        breeds = [...breeds, ...dosgDb]
 
         console.log(breeds);
 

@@ -13,7 +13,7 @@ export default function NewDog() {
   const [selectedTemp, setSelectedTemp] = useState("")
   const [listTemperaments, setListTemperaments] = useState("")
 
-  const [newDog, setNewDog] = useState({
+  const emptyDog = {
     name: "",
     image: "",
     minHeight: 0,
@@ -30,7 +30,9 @@ export default function NewDog() {
     },
     lifeSpan: "",
     temperaments: "",
-  });
+  }
+
+  const [newDog, setNewDog] = useState(emptyDog);
 
   const [errors, setErrors] = useState({
     name: [],
@@ -106,6 +108,7 @@ export default function NewDog() {
   const handleSubmit = (event) => {
     event.preventDefault();
     postDog(newDog);
+    setNewDog(emptyDog);
   };
 
   return (
