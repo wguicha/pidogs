@@ -12,6 +12,7 @@ export default function SearchBar(props) {
    const dispatch = useDispatch()
 
    const onSearch = () => {
+      console.log("key:", key)
       key
       ? dispatch(filterByName(key))
       : dispatch(showAll())
