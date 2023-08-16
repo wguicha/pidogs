@@ -4,9 +4,10 @@ import Nav from '../Nav/Nav';
 import validate from "./validation";
 import { FaPaw } from "react-icons/fa";
 import { MdAddCircle } from "react-icons/md";
-import { useSelector } from "react-redux/es/hooks/useSelector";
+import { useSelector, useDispatch } from "react-redux";
 import { postDog } from "../../utils/postDog";
 import { FaRegSave } from 'react-icons/fa';
+import { addDog } from '../../redux/actions';
 
 export default function NewDog() {
   const temperaments = useSelector((state) => state.temperaments)
@@ -22,15 +23,17 @@ export default function NewDog() {
       imperial: "",
       metric: ""
     },
-    minWeigth: 0,
-    maxWeigth: 0,
-    weigth:  {
+    minWeight: 0,
+    maxWeight: 0,
+    weight:  {
       imperial: "",
       metric: ""
     },
     lifeSpan: "",
     temperaments: "",
   }
+
+  const dispatch = useDispatch()
 
   const [newDog, setNewDog] = useState(emptyDog);
 
@@ -67,19 +70,19 @@ export default function NewDog() {
           }
         });
         break;
-      case "minWeigth":
+      case "minWeight":
         setNewDog({ ...newDog,
           [property]: value,
-          weigth: {imperial:`${Math.round(value/2.54*10)/10} - ${Math.round(newDog.maxWeigth/2.54*10)/10}`,
-            metric:`${value} - ${newDog.maxWeigth}`
+          weight: {imperial:`${Math.round(value/2.54*10)/10} - ${Math.round(newDog.maxWeight/2.54*10)/10}`,
+            metric:`${value} - ${newDog.maxWeight}`
           }
         });
         break;
-      case "maxWeigth":
+      case "maxWeight":
         setNewDog({ ...newDog,
           [property]: value,
-          weigth: {imperial:`${Math.round(newDog.minWeigth/2.54*10)/10} - ${Math.round(value/2.54*10)/10}`,
-            metric:`${newDog.minWeigth} - ${value}`
+          weight: {imperial:`${Math.round(newDog.minWeight/2.54*10)/10} - ${Math.round(value/2.54*10)/10}`,
+            metric:`${newDog.minWeight} - ${value}`
           }
         });
         break;
@@ -108,6 +111,7 @@ export default function NewDog() {
   const handleSubmit = (event) => {
     event.preventDefault();
     postDog(newDog);
+    dispatch(addDog(newDog));
     setNewDog(emptyDog);
   };
 
@@ -193,12 +197,12 @@ export default function NewDog() {
             </div>
           </div>
           <h2 className={styles.label}>PESO</h2>
-          {errors.weigth
-                ?errors.weigth.map((error) => {return <p className={styles.error}>{error}</p>})
+          {errors.weight
+                ?errors.weight.map((error) => {return <p className={styles.error}>{error}</p>})
                 :<></>}
           <div className={styles.inputLabelGroup}>
             <div className={styles.inputLabelShort}>
-                <label className={styles.label} htmlFor="minWeigth">
+                <label className={styles.label} htmlFor="minWeight">
                     Minimo:
                 </label>
                 <input
@@ -206,13 +210,13 @@ export default function NewDog() {
                   className={`${styles.input} ${errors.weight.length !== 0
                                     ?styles.inputIncorrect
                                     :styles.inputCorrect}`}
-                  name="minWeigth"
-                  value={newDog.minWeigth}
+                  name="minWeight"
+                  value={newDog.minWeight}
                   onChange={handleChange}
                 ></input>
             </div>
             <div className={styles.inputLabelShort}>
-                <label className={styles.label} htmlFor="maxWeigth">
+                <label className={styles.label} htmlFor="maxWeight">
                     Maximo:
                 </label>
                 <input
@@ -220,8 +224,8 @@ export default function NewDog() {
                   className={`${styles.input} ${errors.weight.length !== 0
                                     ?styles.inputIncorrect
                                     :styles.inputCorrect}`}
-                  name="maxWeigth"
-                  value={newDog.maxWeigth}
+                  name="maxWeight"
+                  value={newDog.maxWeight}
                   onChange={handleChange}
                 ></input>
             </div>

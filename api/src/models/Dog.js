@@ -21,7 +21,7 @@ module.exports = (sequelize) => {
       type: DataTypes.JSONB,
       allowNull: false,
     },
-    weigth: {
+    weight: {
       type: DataTypes.JSONB,
       allowNull: false,
     },

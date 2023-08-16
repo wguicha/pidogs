@@ -10,8 +10,6 @@ export default function Cards() {
    const dispatch = useDispatch()
    const { dogs, pageAdm } = useSelector((state) => state)
 
-   console.log(dogs)
-
    const partialDogs = dogs.slice(pageAdm.currentPage * pageAdm.itemsPerPage - pageAdm.itemsPerPage, pageAdm.currentPage * pageAdm.itemsPerPage)
    //const partialDogs = dogs.slice(pages.itemOffset, pages.itemOffset + pages.itemsPerPage)
 

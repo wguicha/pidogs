@@ -3,10 +3,10 @@ const { Dog } = require('../db');
 async function postDog (req, res) {
 
     try{
-        const { name, image, height, weigth, lifeSpan } = req.body;
+        const { name, image, height, weight, lifeSpan } = req.body;
 
         await Dog.findOrCreate({
-            where: { name, image, height, weigth, lifeSpan  }
+            where: { name, image, height, weight, lifeSpan  }
         });
 
         res.status(201).json("Record Created");

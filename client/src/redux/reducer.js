@@ -1,4 +1,4 @@
-import { FETCH_DOGS, UPDATE_PAGES, UPLOAD_TEMP, SEARCH_DOGS, FILTER_BY_NAME, SHOW_ALL, UPDATE_ORDER_PARAMS, JUMP_PAGE } from './action_types'
+import { FETCH_DOGS, UPDATE_PAGES, UPLOAD_TEMP, SEARCH_DOGS, FILTER_BY_NAME, SHOW_ALL, UPDATE_ORDER_PARAMS, JUMP_PAGE, ADD_DOG } from './action_types'
 import { orderDogs } from '../utils/orderDogs';
 
 const initialState = {
@@ -58,28 +58,38 @@ const rootReducer = (state = initialState, action) => {
                 }
             };
         case SHOW_ALL:
-        return {
-            ...state,
-            dogs: orderDogs(state.allDogs, state.orderParams),
-            pageAdm: { ...state.pageAdm,
-                numberPages: Math.ceil(state.allDogs.length/state.pageAdm.itemsPerPage),
-                currentPage: Math.ceil(state.allDogs.length/state.pageAdm.itemsPerPage) > 0? 1 : 0,
-            }
-        };
+            return {
+                ...state,
+                dogs: orderDogs(state.allDogs, state.orderParams),
+                pageAdm: { ...state.pageAdm,
+                    numberPages: Math.ceil(state.allDogs.length/state.pageAdm.itemsPerPage),
+                    currentPage: Math.ceil(state.allDogs.length/state.pageAdm.itemsPerPage) > 0? 1 : 0,
+                }
+            };
         case UPDATE_ORDER_PARAMS:
-        return {
-            ...state,
-            orderParams: {
-                ...state.orderParams, ...action.payload,
-            }
-        };
+            return {
+                ...state,
+                orderParams: {
+                    ...state.orderParams, ...action.payload,
+                }
+            };
         case JUMP_PAGE:
-        return {
-            ...state,
-            pageAdm: {
-                ...state.pageAdm, currentPage: action.payload,
+            return {
+                ...state,
+                pageAdm: {
+                    ...state.pageAdm, currentPage: action.payload,
+                }
             }
-        }
+        case ADD_DOG:
+            return {
+                ...state,
+                dogs: [
+                    ...state.allDogs, action.payload
+                ],
+                allDogs: [
+                    ...state.allDogs, action.payload
+                ]
+            };
         default:
         return {...state};
     }
