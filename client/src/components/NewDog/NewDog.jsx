@@ -88,12 +88,8 @@ export default function NewDog() {
         break;
       default:
           setNewDog({ ...newDog, [property]: value });
-      //setErrors({ email: [], password: [] });
     }
-
     validate({ ...newDog, [property]: value }, errors, setErrors);
-
-
   };
 
   const addTemperament = (event) => {
@@ -264,8 +260,8 @@ export default function NewDog() {
                 <datalist name="temperaments" id="temperaments">
                 <option value="uno">Uno</option>
                 {
-                  temperaments.map((temp) => {
-                    return <option value={temp}>{temp}</option>
+                  temperaments.map((temp, index) => {
+                    return <option key={index} value={temp}>{temp}</option>
                   })
                 }
                 </datalist>

@@ -84,10 +84,14 @@ const rootReducer = (state = initialState, action) => {
             return {
                 ...state,
                 dogs: [
-                    ...state.allDogs, action.payload
+                    ...state.allDogs, {...action.payload,
+                        id: state.allDogs.length + 1
+                    }
                 ],
                 allDogs: [
-                    ...state.allDogs, action.payload
+                    ...state.allDogs, {...action.payload,
+                        id: state.allDogs.length + 1
+                    }
                 ]
             };
         default:

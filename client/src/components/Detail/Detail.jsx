@@ -8,6 +8,7 @@ function Detail(props) {
     const { id } = useParams();
     // eslint-disable-next-line eqeqeq
     const filteredDogs = allDogs.filter((dog) =>dog.id == id)
+    console.log("filteredDogs:", filteredDogs)
     const { name, height, weight, lifeSpan, image } = filteredDogs[0];
     return (
     <div className={styles.divCardContainer}>
