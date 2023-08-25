@@ -1,7 +1,8 @@
 import { FETCH_DOGS, UPDATE_PAGES, UPLOAD_TEMP, SEARCH_DOGS, FILTER_BY_NAME, SHOW_ALL, UPDATE_ORDER_PARAMS, JUMP_PAGE, ADD_DOG, UPDATE_SEARCH_KEY } from './action_types'
 import axios from 'axios';
 
-const URL = 'http://localhost:3001/'
+//const URL = 'http://localhost:3001/'
+const URL = 'https://pidogs-9fgg.onrender.com/'
 
 export const fetchDogs = (payload) => {
     return async (dispatch) => {

@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-const URL = 'http://localhost:3001/'
+//const URL = 'http://localhost:3001/'
+const URL = 'https://pidogs-9fgg.onrender.com/'
 
 export const postDog = async (newDog) => {
     try {
