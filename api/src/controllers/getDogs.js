@@ -9,16 +9,15 @@ async function getDogs (req, res) {
         const breeds = []
         const { name } = req.query
         let response = await axios(`${URL}${API_KEY}`)
-
         if(name){
             response.data.forEach((x) => {
                 if(x.name.toLowerCase().includes(name.toLowerCase())){
-                    breeds.push({ id: x.id, name: x.name, height: x.height, weight: x.height, lifeSpan: x.life_span,  image: x.image.url })
+                    breeds.push({ id: x.id, name: x.name, height: x.height, weight: x.height, lifeSpan: x.life_span,  image: `https://cdn2.thedogapi.com/images/${x.reference_image_id}.jpg`, temperament: x.temperament })
                 }
             })
         }else{
             response.data.forEach((x) => {
-                breeds.push({ id: x.id, name: x.name, height: x.height, weight: x.height, lifeSpan: x.life_span,  image: x.image.url })
+                breeds.push({ id: x.id, name: x.name, height: x.height, weight: x.height, lifeSpan: x.life_span,  image: `https://cdn2.thedogapi.com/images/${x.reference_image_id}.jpg`, temperament: x.temperament  })
             })
         }
         
@@ -29,6 +28,7 @@ async function getDogs (req, res) {
         res.status(200).json(breeds);
 
     } catch (err) {
+        console.log(err)
         return res.status(500).json({message: err.message})
         //errorHandler(res, err)
     }

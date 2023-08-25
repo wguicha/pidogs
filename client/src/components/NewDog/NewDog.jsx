@@ -106,6 +106,7 @@ export default function NewDog() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    console.log("New Dog:", newDog)
     postDog(newDog);
     dispatch(addDog(newDog));
     setNewDog(emptyDog);
